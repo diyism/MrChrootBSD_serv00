@@ -24,6 +24,18 @@ devil binexec on
 pkg install python3
 pkg install py311-pip
 
+pkg install qemu-user-static
+# 下载 Linux rootfs
+mkdir ~/linux
+cd ~/linux
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz
+tar xzf alpine-minirootfs-*.tar.gz
+# 复制 qemu-user-static 到 rootfs
+cp /usr/local/bin/qemu-x86_64-static ~/linux/usr/bin/
+# 使用 mrchroot 进入并运行
+# 或直接运行 Linux 二进制
+qemu-x86_64-static ~/linux/bin/busybox sh
+
 pkg install podman
 sysrc linux_enable=YES
 service linux start     #failed
