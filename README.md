@@ -36,6 +36,13 @@ cp /usr/local/bin/qemu-x86_64-static ~/linux/usr/bin/
 # 或直接运行 Linux 二进制
 qemu-x86_64-static ~/linux/bin/busybox sh
 
+mkdir ~/linux-debian
+cd ~/linux-debian
+fetch https://github.com/debuerreotype/docker-debian-artifacts/raw/dist-amd64/stable/slim/rootfs.tar.xz
+tar xf rootfs.tar.xz
+cd ~
+qemu-x86_64-static -L ~/linux-debian ~/linux-debian/bin/bash
+
 pkg install podman
 sysrc linux_enable=YES
 service linux start     #failed
