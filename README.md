@@ -38,7 +38,7 @@ qemu-x86_64-static ~/linux/bin/busybox sh
 
 mkdir ~/linux-debian
 cd ~/linux-debian
-fetch https://github.com/debuerreotype/docker-debian-artifacts/raw/dist-amd64/stable/slim/rootfs.tar.xz
+fetch https://github.com/debuerreotype/docker-debian-artifacts/raw/refs/heads/dist-amd64/stable/slim/oci/blobs/rootfs.tar.gz
 tar xf rootfs.tar.xz
 cd ~
 qemu-x86_64-static -L ~/linux-debian ~/linux-debian/bin/bash
