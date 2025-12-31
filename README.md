@@ -36,16 +36,16 @@ cp /usr/local/bin/qemu-x86_64-static ~/linux/usr/bin/
 # 或直接运行 Linux 二进制
 qemu-x86_64-static ~/linux/bin/busybox sh
 
-mkdir ~/linux-debian
-cd ~/linux-debian
-fetch https://github.com/debuerreotype/docker-debian-artifacts/raw/refs/heads/dist-amd64/stable/slim/oci/blobs/rootfs.tar.gz
-tar xf rootfs.tar.xz
-cd ~
-qemu-x86_64-static -L ~/linux-debian ~/linux-debian/bin/bash
+$ mkdir ~/linux-debian
+$ cd ~/linux-debian
+$ fetch https://github.com/debuerreotype/docker-debian-artifacts/raw/refs/heads/dist-amd64/stable/slim/oci/blobs/rootfs.tar.gz
+$ tar xf rootfs.tar.xz
+$ cd ~
+$ qemu-x86_64-static -L ~/linux-debian ~/linux-debian/bin/bash
 
-fetch https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/busybox
-chmod +x busybox
-qemu-x86_64-static ./busybox echo hello
+$ fetch https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/busybox
+$ chmod +x busybox
+$ qemu-x86_64-static ./busybox echo hello
 sysctl: Unknown error: -1                         #failed, syscall blocked by serv00 kernel
 qemu: unsupported syscall: 158 (calling anyway)
 
