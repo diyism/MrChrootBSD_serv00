@@ -43,6 +43,11 @@ tar xf rootfs.tar.xz
 cd ~
 qemu-x86_64-static -L ~/linux-debian ~/linux-debian/bin/bash
 
+fetch https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/busybox
+qemu-x86_64-static ./busybox echo hello
+sysctl: Unknown error: -1                         #failed, syscall blocked by serv00 kernel
+qemu: unsupported syscall: 158 (calling anyway)
+
 pkg install podman
 sysrc linux_enable=YES
 service linux start     #failed
